@@ -1,7 +1,7 @@
-package com.example.dreambuy.ui.theme.viewmodel
+package com.example.dreamdeal.ui.theme.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.example.dreambuy.ui.theme.data.CartItem
+import com.example.dreamdeal.ui.theme.data.CartItem
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 

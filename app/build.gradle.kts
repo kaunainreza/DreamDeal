@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.dreambuy"
+    namespace = "com.example.dreamdeal"
     compileSdk = 36
 
     defaultConfig {

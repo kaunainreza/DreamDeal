@@ -1,4 +1,4 @@
-package com.example.dreambuy.ui.theme.ui
+package com.example.dreamdeal.ui.theme.ui
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ShoppingCart
@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.dreambuy.ui.theme.viewmodel.CartViewModel
+import com.example.dreamdeal.ui.theme.viewmodel.CartViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

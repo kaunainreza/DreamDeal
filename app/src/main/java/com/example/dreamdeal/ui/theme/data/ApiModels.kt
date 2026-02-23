@@ -1,4 +1,4 @@
-package com.example.dreambuy.ui.theme.data
+package com.example.dreamdeal.ui.theme.data
 
 data class ProductsResponse(
     val products: List<ProductDto>

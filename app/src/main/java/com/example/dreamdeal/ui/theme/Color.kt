@@ -1,4 +1,4 @@
-package com.example.dreambuy.ui.theme
+package com.example.dreamdeal.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

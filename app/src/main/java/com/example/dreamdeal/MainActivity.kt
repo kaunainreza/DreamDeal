@@ -1,4 +1,4 @@
-package com.example.dreambuy
+package com.example.dreamdeal
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -17,11 +17,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.dreambuy.ui.theme.RodTestAppTheme
-import com.example.dreambuy.ui.theme.ui.CartScreen
-import com.example.dreambuy.ui.theme.ui.HomeScreen
-import com.example.dreambuy.ui.theme.ui.ProductDetailScreen
-import com.example.dreambuy.ui.theme.viewmodel.CartViewModel
+import com.example.dreamdeal.ui.theme.RodTestAppTheme
+import com.example.dreamdeal.ui.theme.ui.CartScreen
+import com.example.dreamdeal.ui.theme.ui.HomeScreen
+import com.example.dreamdeal.ui.theme.ui.ProductDetailScreen
+import com.example.dreamdeal.ui.theme.viewmodel.CartViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,4 +1,4 @@
-package com.example.dreambuy.ui.theme.ui
+package com.example.dreamdeal.ui.theme.ui
 
 
 import androidx.compose.foundation.clickable
@@ -11,7 +11,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.example.dreambuy.ui.theme.data.Product
+import com.example.dreamdeal.ui.theme.data.Product
 
 @Composable
 fun ProductCard(product: Product, onClick: () -> Unit = {}) {

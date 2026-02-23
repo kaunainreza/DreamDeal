@@ -1,4 +1,4 @@
-package com.example.dreambuy.ui.theme.ui
+package com.example.dreamdeal.ui.theme.ui
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -17,10 +17,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
-import com.example.dreambuy.ui.theme.data.CartItem
-import com.example.dreambuy.ui.theme.data.Product
-import com.example.dreambuy.ui.theme.viewmodel.CartViewModel
-import com.example.dreambuy.ui.theme.viewmodel.ShopViewModel
+import com.example.dreamdeal.ui.theme.data.CartItem
+import com.example.dreamdeal.ui.theme.data.Product
+import com.example.dreamdeal.ui.theme.viewmodel.CartViewModel
+import com.example.dreamdeal.ui.theme.viewmodel.ShopViewModel
 import androidx.compose.ui.tooling.preview.Preview
 
 @OptIn(ExperimentalMaterial3Api::class)

@@ -1,4 +1,4 @@
-package com.example.dreambuy
+package com.example.dreamdeal
 
 import org.junit.Test
 

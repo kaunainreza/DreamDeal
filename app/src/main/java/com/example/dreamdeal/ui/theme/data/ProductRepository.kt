@@ -1,6 +1,6 @@
-package com.example.dreambuy.ui.theme.data
+package com.example.dreamdeal.ui.theme.data
 
-import com.example.dreambuy.ui.theme.network.RetrofitClient
+import com.example.dreamdeal.ui.theme.network.RetrofitClient
 
 
 class ProductRepository {

@@ -1,11 +1,11 @@
-package com.example.dreambuy.ui.theme.viewmodel
+package com.example.dreamdeal.ui.theme.viewmodel
 
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.dreambuy.ui.theme.data.Product
-import com.example.dreambuy.ui.theme.data.ProductRepository
+import com.example.dreamdeal.ui.theme.data.Product
+import com.example.dreamdeal.ui.theme.data.ProductRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

@@ -1,4 +1,4 @@
-package com.example.dreambuy.ui.theme
+package com.example.dreamdeal.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
