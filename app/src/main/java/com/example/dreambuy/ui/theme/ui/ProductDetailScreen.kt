@@ -52,7 +52,7 @@ fun ProductDetailScreen(
 
     // ensure selector resets each time this product screen is (re)entered
     LaunchedEffect(productId) {
-        qtyState.value = 1
+        qtyState.value = 0
     }
 
     // Confirmation message state
