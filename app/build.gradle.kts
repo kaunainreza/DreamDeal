@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.rodtestapp"
+    namespace = "com.example.dreambuy"
     compileSdk = 36
 
     defaultConfig {

@@ -1,7 +1,7 @@
-package com.example.rodtestapp.ui.theme.network
+package com.example.dreambuy.ui.theme.network
 
-import com.example.rodtestapp.ui.theme.data.ProductDto
-import com.example.rodtestapp.ui.theme.data.ProductsResponse
+import com.example.dreambuy.ui.theme.data.ProductDto
+import com.example.dreambuy.ui.theme.data.ProductsResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

@@ -1,4 +1,4 @@
-package com.example.rodtestapp
+package com.example.dreambuy
 
 import org.junit.Test
 
