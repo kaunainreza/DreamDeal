@@ -1,6 +1,4 @@
-package com.example.rodtestapp.ui.theme.data
-
-import com.example.rodtestapp.ui.theme.data.Product
+package com.example.dreambuy.ui.theme.data
 
 data class CartItem(
     val productId: Int,

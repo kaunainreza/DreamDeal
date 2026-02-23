@@ -1,6 +1,6 @@
-package com.example.rodtestapp.ui.theme.ui
+package com.example.dreambuy.ui.theme.ui
 
-import com.example.rodtestapp.ui.theme.viewmodel.ShopViewModel
+import com.example.dreambuy.ui.theme.viewmodel.ShopViewModel
 
 
 import androidx.compose.foundation.layout.*
@@ -16,9 +16,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.rodtestapp.ui.theme.RodTestAppTheme
-import com.example.rodtestapp.ui.theme.data.Product
-import com.example.rodtestapp.ui.theme.viewmodel.CartViewModel
+import com.example.dreambuy.ui.theme.RodTestAppTheme
+import com.example.dreambuy.ui.theme.data.Product
+import com.example.dreambuy.ui.theme.viewmodel.CartViewModel
 
 @Composable
 fun HomeScreen(

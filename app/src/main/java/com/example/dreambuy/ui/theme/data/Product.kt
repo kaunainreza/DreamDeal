@@ -1,4 +1,4 @@
-package com.example.rodtestapp.ui.theme.data
+package com.example.dreambuy.ui.theme.data
 
 data class Product(
     val id: Int,

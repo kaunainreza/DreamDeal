@@ -1,6 +1,5 @@
-package com.example.rodtestapp.ui.theme
+package com.example.dreambuy.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

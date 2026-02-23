@@ -1,4 +1,4 @@
-package com.example.rodtestapp
+package com.example.dreambuy
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

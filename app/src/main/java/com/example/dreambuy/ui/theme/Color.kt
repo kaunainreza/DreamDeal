@@ -1,4 +1,4 @@
-package com.example.rodtestapp.ui.theme
+package com.example.dreambuy.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
