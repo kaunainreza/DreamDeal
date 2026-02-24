@@ -21,7 +21,7 @@ fun CartIconWithPreview(
     onOpenCart: () -> Unit = {}
 ) {
     val items by cartVm.items.collectAsState()
-    val count = items.sumOf { it.quantity }
+    val count = items.count { it.quantity > 0 }
 
     IconButton(onClick = { onOpenCart() }) {
         BadgedBox(badge = {
