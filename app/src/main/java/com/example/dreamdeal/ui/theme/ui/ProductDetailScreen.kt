@@ -1,5 +1,6 @@
 package com.example.dreamdeal.ui.theme.ui
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -62,32 +63,11 @@ fun ProductDetailScreen(
     val cartItems by cartVm.items.collectAsState()
     val inCartQty = cartItems.find { it.productId == productId }?.quantity ?: 0
 
-    // Quantity state for cart selector - default to 1 so auto-add is obvious
-    val qtyState = remember { mutableStateOf(1) }
-
-    // Confirmation message state (moved above LaunchedEffect so we can set it there)
+    // Confirmation message state
     var showConfirm by remember { mutableStateOf(false) }
     var confirmText by remember { mutableStateOf("") }
 
-    // ensure selector resets each time this product screen is (re)entered
-    // and auto-add the product to the cart when the screen opens (only if not already in cart)
-    LaunchedEffect(productId) {
-        // read current cart snapshot and initialize selector based on it
-        val existing = cartItems.find { it.productId == productId }
-        if (existing != null) {
-            qtyState.value = existing.quantity
-        } else {
-            qtyState.value = 0
-            // only add to cart once when the screen is first opened for this product
-            val cartItem = CartItem.fromProduct(product, qtyState.value)
-            cartVm.addToCart(cartItem)
-            confirmText = "Added ${qtyState.value} to cart"
-            showConfirm = true
-        }
-    }
-
-    Column(modifier = Modifier
-        .fillMaxSize()) {
+    Column(modifier = Modifier.fillMaxSize()) {
 
         TopAppBar(
             title = { Text(text = product.title, maxLines = 1) },
@@ -97,10 +77,12 @@ fun ProductDetailScreen(
                 }
             },
             actions = {
-                CartIconWithPreview(
-                    count = cartItems.sumOf { it.quantity },
+                val cartCount = cartItems.count { it.quantity > 0 }
+                CartIcon(
+                    count = cartCount,
                     onOpenCart = onOpenCart
-                )            }
+                )
+            }
         )
 
         Column(modifier = Modifier
@@ -128,65 +110,64 @@ fun ProductDetailScreen(
             Spacer(modifier = Modifier.height(12.dp))
             Text("Product details would go here. Add description, specifications, or actions like Add to Cart.")
 
-            Spacer(modifier = Modifier.height(12.dp))
-            // show current in-cart quantity
-            Text("In cart: $inCartQty", style = MaterialTheme.typography.bodyMedium)
+            Spacer(modifier = Modifier.height(24.dp))
 
-            Spacer(modifier = Modifier.height(8.dp))
-
-            // Quantity selector row
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Button(
-                    onClick = {
-                        val newQty = (qtyState.value - 1).coerceAtLeast(0)
-                        qtyState.value = newQty
-                        // if item exists update/remove, otherwise if newQty>0 add
-                        val exists = cartItems.any { it.productId == productId }
-                        if (exists) {
+            // Cart interaction section - matching HomeScreen behavior logic
+            if (inCartQty > 0) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    Button(
+                        onClick = {
+                            val newQty = inCartQty - 1
                             cartVm.updateQuantity(productId, newQty)
                             confirmText = if (newQty > 0) "Updated quantity to $newQty" else "Removed from cart"
-                        } else if (newQty > 0) {
-                            cartVm.addToCart(CartItem.fromProduct(product, newQty))
-                            confirmText = "Added $newQty to cart"
-                        }
-                        showConfirm = true
-                    },
-                    contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp)
-                ) {
-                    Text("-")
-                }
+                            showConfirm = true
+                        },
+                        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp)
+                    ) {
+                        Text("-")
+                    }
 
-                Text(
-                    text = qtyState.value.toString(),
-                    modifier = Modifier.padding(horizontal = 16.dp),
-                    style = MaterialTheme.typography.titleMedium
-                )
+                    Text(
+                        text = inCartQty.toString(),
+                        modifier = Modifier.padding(horizontal = 24.dp),
+                        style = MaterialTheme.typography.titleLarge
+                    )
 
-                Button(
-                    onClick = {
-                        val newQty = (qtyState.value + 1).coerceAtMost(99)
-                        qtyState.value = newQty
-                        val exists = cartItems.any { it.productId == productId }
-                        if (exists) {
+                    Button(
+                        onClick = {
+                            val newQty = (inCartQty + 1).coerceAtMost(99)
                             cartVm.updateQuantity(productId, newQty)
                             confirmText = "Updated quantity to $newQty"
-                        } else {
-                            cartVm.addToCart(CartItem.fromProduct(product, newQty))
-                            confirmText = "Added $newQty to cart"
-                        }
+                            showConfirm = true
+                        },
+                        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp)
+                    ) {
+                        Text("+")
+                    }
+                }
+            } else {
+                Button(
+                    onClick = {
+                        cartVm.addToCart(CartItem.fromProduct(product, 1))
+                        confirmText = "Added to cart"
                         showConfirm = true
                     },
-                    contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp)
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(8.dp)
                 ) {
-                    Text("+")
+                    Text("Add to Cart")
                 }
-
-                // Removed explicit "Add to Cart" button — product is added automatically when this screen opens
             }
 
             if (showConfirm) {
                 Spacer(modifier = Modifier.height(12.dp))
-                Text(confirmText, style = MaterialTheme.typography.bodyMedium)
+                Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+                    Text(confirmText, style = MaterialTheme.typography.bodyMedium)
+                }
                 // auto-hide after a short delay
                 LaunchedEffect(confirmText) {
                     delay(1500)
@@ -196,4 +177,3 @@ fun ProductDetailScreen(
         }
     }
 }
-
